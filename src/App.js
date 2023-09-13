@@ -11,13 +11,15 @@ import {
 } from "react-router-dom";
 
 const appRouter = createBrowserRouter(
-  createRoutesFromElements(<Route path="/" element={<Root />}></Route>)
+  createRoutesFromElements(
+    <Route path="/" element={<Root />}>
+      <Route index element={<HomePage />} />
+    </Route>
+  )
 );
 
 function App() {
-  return (
-    <RouterProvider router={appRouter} />
-  );
+  return <RouterProvider router={appRouter} />;
 }
 
 export default App;
