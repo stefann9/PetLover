@@ -4,13 +4,14 @@ import PetDetailsPage from "./pages/detail";
 import PetDetailsNotFound from "./pages/petDetailsNotFound";
 import Root from "./components/root";
 import {
+  Route,
   RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
 
 const appRouter = createBrowserRouter(
-  createRoutesFromElements()
+  createRoutesFromElements(<Route path="/" element={<Root />}></Route>)
 );
 
 function App() {
