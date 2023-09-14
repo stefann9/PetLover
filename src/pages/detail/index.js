@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { getPetDetails } from '../../api/petfinder';
-import Hero from '../../components/hero';
+import React, { useEffect, useState } from "react";
+import { getPetDetails } from "../../api/petfinder";
+import Hero from "../../components/hero";
 
-// Import useParams
-// Import Navigate
+import { useParams } from "react-router-dom";
 
 const PetDetailsPage = () => {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const id = '51322435'; // <--- Update me!
+  const { id } = useParams();
 
   useEffect(() => {
     async function getPetsData() {
@@ -31,29 +30,25 @@ const PetDetailsPage = () => {
       {loading ? (
         <h3>Loading...</h3>
       ) : error ? (
-        <div>
-          {/* Redirect to /pet-details-not-found if there was an error! */}
-        </div>
+        <div>{/* Redirect to /pet-details-not-found if there was an error! */}</div>
       ) : (
         <main>
           <Hero
-            image={data.photos[1]?.full || 'https://i.imgur.com/aEcJUFK.png'}
+            image={data.photos[1]?.full || "https://i.imgur.com/aEcJUFK.png"}
             displayText={`Meet ${data.name}`}
           />
           <div className="pet-detail">
             <div className="pet-image-container">
               <img
                 className="pet-image"
-                src={
-                  data.photos[0]?.medium || 'https://i.imgur.com/aEcJUFK.png'
-                }
+                src={data.photos[0]?.medium || "https://i.imgur.com/aEcJUFK.png"}
                 alt=""
               />
             </div>
             <div>
               <h1>{data.name}</h1>
               <h3>Breed: {data.breeds.primary}</h3>
-              <p>Color: {data.colors.primary || 'Unknown'}</p>
+              <p>Color: {data.colors.primary || "Unknown"}</p>
               <p>Gender: {data.gender}</p>
               <h3>Description</h3>
               <p>{data.description}</p>
