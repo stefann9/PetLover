@@ -24,6 +24,7 @@ const Search = ({ petTypes }) => {
       pathname: "/search",
       search: `?${query}`,
     });
+    setSearchSelectType("")
   };
 
   return (
