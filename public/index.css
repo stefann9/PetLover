@@ -160,6 +160,42 @@ body {
   padding: 4px 8px;
 }
 
+nav{
+  position: relative;
+}
+details.filter {
+  position: absolute;
+  width: fit-content;
+  top:12px;
+  right: 300px;
+  border: 1px solid #aaa;
+  border-radius: 24px;
+  padding: 0.5em 0.5em 0;
+  background-color: white;
+  text-align: end;
+}
+
+.filter summary {
+  font-weight: bold;
+  margin: -0.5em -0.5em 0;
+  padding: 0.5em;
+
+}
+
+details.filter[open] {
+  padding: 0.5em;
+}
+
+details.filter[open] summary {
+  border-bottom: 1px solid #aaa;
+  margin-bottom: 0.5em;
+
+}
+details.filter select{
+  margin-bottom: 1em;
+}
+
+
 .search-button {
   height: 24px;
   width: 24px;
