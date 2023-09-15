@@ -6,15 +6,18 @@ const Search = ({ petTypes }) => {
   const [searchParams] = useSearchParams();
   const { type } = useParams();
 
-  const searchInputRef = useRef();
-  // const searchSelectType = useRef();
   const [searchSelectType, setSearchSelectType] = useState("");
+
+  const searchInputRef = useRef();
+  const searchSelectGender = useRef();
+
   const onSearchHandler = (e) => {
     e.preventDefault();
 
     const searchQuery = {
-      name: searchInputRef.current.value,
-      type: searchSelectType || type || searchParams.get("type"),
+      name: searchInputRef.current?.value,
+      type: searchSelectType || type || searchParams.get("type") || "",
+      gender: searchSelectGender.current?.value || "",
     };
     const query = createSearchParams(searchQuery);
     navigate({
@@ -35,6 +38,21 @@ const Search = ({ petTypes }) => {
             </option>
           ))}
         </select>
+        {searchSelectType &&
+          petTypes.map((pet) => {
+            if (pet.name === searchSelectType) {
+              return (
+                <select id="pet-select" ref={searchSelectGender}>
+                  <option value="">-- Gender --</option>
+                  {pet.genders.map((gender) => (
+                    <option key={gender} value={gender}>
+                      {gender}
+                    </option>
+                  ))}
+                </select>
+              );
+            }
+          })}
       </details>
       <input type="text" className="search" ref={searchInputRef} />
       <button type="submit" className="search-button">

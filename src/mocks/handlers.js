@@ -1,34 +1,35 @@
-import { rest } from 'msw';
-import types from './data/types.json';
-import animals from './data/animals.json';
-import details from './data/details.json';
+import { rest } from "msw";
+import types from "./data/types.json";
+import animals from "./data/animals.json";
+import details from "./data/details.json";
 
 export const handlers = [
-  rest.get('/types', (_req, res, ctx) => {
+  rest.get("/types", (_req, res, ctx) => {
     return res(ctx.status(200), ctx.json(types));
   }),
-  rest.get('/animals', (req, res, ctx) => {
-    const type = req.url.searchParams.get('type');
-    const query = req.url.searchParams.get('query');
+  rest.get("/animals", (req, res, ctx) => {
+    const type = req.url.searchParams.get("type");
+    const query = req.url.searchParams.get("query");
+    const gender = req.url.searchParams.get("gender");
     let response = animals.animals;
 
-    if (type !== '') {
-      response = response.filter(
-        (animal) => animal.type.toLowerCase() === type.toLowerCase()
-      );
+    if (type !== "") {
+      response = response.filter((animal) => animal.type.toLowerCase() === type.toLowerCase());
     }
-    if (query !== '') {
+    if (query !== "") {
       response = response.filter(
         (animal) =>
-          animal.contact.address.state
-            .toLowerCase()
-            .includes(query.toLowerCase()) ||
+          animal.contact.address.state.toLowerCase().includes(query.toLowerCase()) ||
           animal.name.toLowerCase().includes(query.toLowerCase())
       );
     }
+    if (gender !== "") {
+      response = response.filter((animal) => animal.gender.toLowerCase() === gender.toLowerCase());
+    }
+
     return res(ctx.status(200), ctx.json(response));
   }),
-  rest.get('/animals/:id', (req, res, ctx) => {
+  rest.get("/animals/:id", (req, res, ctx) => {
     const { id } = req.params;
     let response = details[id];
 
@@ -37,5 +38,5 @@ export const handlers = [
     }
 
     return res(ctx.status(200), ctx.json(response));
-  })
+  }),
 ];
