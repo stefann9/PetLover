@@ -9,18 +9,18 @@ const SearchPage = () => {
   const [searchParams] = useSearchParams()
 
   const petNameToFind = searchParams.get('name')
-  
+  const petTypeToFind = searchParams.get('type')
   const [pets, setPets] = useState([]);
 
   useEffect(() => {
     async function getPetsData() {
-      const petsData = await getPets('', petNameToFind);
+      const petsData = await getPets(petTypeToFind, petNameToFind);
 
       setPets(petsData);
     }
 
     getPetsData();
-  }, [petNameToFind]);
+  }, [petNameToFind, petTypeToFind]);
 
   return (
     <div className="page">

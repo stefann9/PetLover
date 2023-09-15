@@ -1,16 +1,17 @@
 import React, { useRef } from "react";
 import { createSearchParams, useNavigate } from "react-router-dom";
 
-const Search = () => {
+const Search = ({ petTypes }) => {
   const navigate = useNavigate();
-
   const searchInputRef = useRef();
+  const searchOption = useRef();
 
   const onSearchHandler = (e) => {
     e.preventDefault();
 
     const searchQuery = {
       name: searchInputRef.current.value,
+      type: searchOption.current.value,
     };
     const query = createSearchParams(searchQuery);
     navigate({
@@ -23,14 +24,13 @@ const Search = () => {
     <form onSubmit={onSearchHandler} className="search-form">
       <details className="filter">
         <summary>Filter</summary>
-        <select id="pet-select">
-          <option value="">-- Choose a pet --</option>
-          <option value="dog">Dog</option>
-          <option value="cat">Cat</option>
-          <option value="hamster">Hamster</option>
-          <option value="parrot">Parrot</option>
-          <option value="spider">Spider</option>
-          <option value="goldfish">Goldfish</option>
+        <select id="pet-select" ref={searchOption}>
+          <option value="">-- Choose a pet type --</option>
+          {petTypes.map((type) => (
+            <option key={type.name} value={type.name}>
+              {type.name}
+            </option>
+          ))}
         </select>
       </details>
       <input type="text" className="search" ref={searchInputRef} />

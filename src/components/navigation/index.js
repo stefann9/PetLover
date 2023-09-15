@@ -20,7 +20,7 @@ const Navigation = () => {
     <nav>
       <div className="nav-logo">
         <img src={Logo} alt="Petlover" />
-        <Search />
+        <Search petTypes={petTypes}/>
       </div>
       <ul className="nav-links">
         <li key={"all"}>
