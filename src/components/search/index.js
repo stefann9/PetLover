@@ -1,9 +1,11 @@
 import React, { useRef } from "react";
-import { createSearchParams, useNavigate, useParams } from "react-router-dom";
+import { createSearchParams, useNavigate, useParams, useSearchParams } from "react-router-dom";
 
 const Search = ({ petTypes }) => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams()
   const {type} = useParams();
+
   const searchInputRef = useRef();
   const searchOption = useRef();
 
@@ -12,7 +14,7 @@ const Search = ({ petTypes }) => {
 
     const searchQuery = {
       name: searchInputRef.current.value,
-      type: searchOption.current.value || type,
+      type: searchOption.current.value || type || searchParams.get('type'),
     };
     const query = createSearchParams(searchQuery);
     navigate({
