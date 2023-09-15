@@ -2418,6 +2418,77 @@
         "type": { "href": "/v2/types/dog" },
         "organization": { "href": "/v2/organizations/ca2718" }
       }
+    }, {
+      "id": 513223930,
+      "organization_id": "WA7",
+      "url": "https://www.petfinder.com/bird/cornelius-51322393/wa/bellingham/whatcom-humane-society-wa7/?referrer_id=9628f526-bbe7-46d7-8d13-84143024f092",
+      "type": "Bird",
+      "species": "Chicken",
+      "breeds": {
+        "primary": "Chicken",
+        "secondary": null,
+        "mixed": false,
+        "unknown": false
+      },
+      "colors": { "primary": "Brown", "secondary": null, "tertiary": null },
+      "age": "Adult",
+      "gender": "Male",
+      "size": "Small",
+      "coat": null,
+      "attributes": {
+        "spayed_neutered": false,
+        "house_trained": false,
+        "declawed": null,
+        "special_needs": false,
+        "shots_current": false
+      },
+      "environment": { "children": null, "dogs": null, "cats": null },
+      "tags": [],
+      "name": "Cornelius",
+      "description": "Solo bird looking to meet a new flock of friends. This handsome rooster Cornelius is a mellow fellow who seems...",
+      "organization_animal_id": null,
+      "photos": [
+        {
+          "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51322393/2/?bust=1619218635\u0026width=100",
+          "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51322393/2/?bust=1619218635\u0026width=300",
+          "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51322393/2/?bust=1619218635\u0026width=600",
+          "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51322393/2/?bust=1619218635"
+        },
+        {
+          "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51322393/1/?bust=1619218594\u0026width=100",
+          "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51322393/1/?bust=1619218594\u0026width=300",
+          "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51322393/1/?bust=1619218594\u0026width=600",
+          "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51322393/1/?bust=1619218594"
+        }
+      ],
+      "primary_photo_cropped": {
+        "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51322393/2/?bust=1619218635\u0026width=300",
+        "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51322393/2/?bust=1619218635\u0026width=450",
+        "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51322393/2/?bust=1619218635\u0026width=600",
+        "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51322393/2/?bust=1619218635"
+      },
+      "videos": [],
+      "status": "adoptable",
+      "status_changed_at": "2021-04-23T22:57:20+0000",
+      "published_at": "2021-04-23T22:57:20+0000",
+      "distance": null,
+      "contact": {
+        "email": "adoptions@whatcomhumane.org",
+        "phone": "(360) 733-2080 ext. 0",
+        "address": {
+          "address1": "2172 Division Street",
+          "address2": null,
+          "city": "Bellingham",
+          "state": "WA",
+          "postcode": "98226",
+          "country": "US"
+        }
+      },
+      "_links": {
+        "self": { "href": "/v2/animals/51322393" },
+        "type": { "href": "/v2/types/bird" },
+        "organization": { "href": "/v2/organizations/wa7" }
+      }
     },
     {
       "id": 51322393,
