@@ -10,17 +10,18 @@ const SearchPage = () => {
   const petNameToFind = searchParams.get("name");
   const petTypeToFind = searchParams.get("type");
   const petGenderToFind = searchParams.get("gender");
+  const petCoatToFind = searchParams.get("coat");
   const [pets, setPets] = useState([]);
 
   useEffect(() => {
     async function getPetsData() {
-      const petsData = await getPets(petTypeToFind, petNameToFind, petGenderToFind);
+      const petsData = await getPets(petTypeToFind, petNameToFind, petGenderToFind, petCoatToFind);
 
       setPets(petsData);
     }
 
     getPetsData();
-  }, [petNameToFind, petTypeToFind, petGenderToFind]);
+  }, [petNameToFind, petTypeToFind, petGenderToFind, petCoatToFind]);
 
   return (
     <div className="page">

@@ -1,5 +1,5 @@
-export const getPets = async (type = "", query = "", gender = "") => {
-  const searchParams = new URLSearchParams({ type, query , gender});
+export const getPets = async (type = "", query = "", gender = "", coat = "") => {
+  const searchParams = new URLSearchParams({ type, query, gender, coat });
   const requestUrl = `/animals?${searchParams.toString()}`;
 
   const response = await fetch(requestUrl, {

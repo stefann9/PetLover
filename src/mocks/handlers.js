@@ -11,6 +11,7 @@ export const handlers = [
     const type = req.url.searchParams.get("type");
     const query = req.url.searchParams.get("query");
     const gender = req.url.searchParams.get("gender");
+    const coat = req.url.searchParams.get("coat");
     let response = animals.animals;
 
     if (type !== "") {
@@ -25,6 +26,9 @@ export const handlers = [
     }
     if (gender !== "") {
       response = response.filter((animal) => animal.gender.toLowerCase() === gender.toLowerCase());
+    }
+    if (coat !== "") {
+      response = response.filter((animal) => animal.coat?.toLowerCase() === coat.toLowerCase());
     }
 
     return res(ctx.status(200), ctx.json(response));
