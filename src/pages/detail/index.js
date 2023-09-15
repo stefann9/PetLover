@@ -52,6 +52,7 @@ const PetDetailsPage = () => {
               <h3>Breed: {data.breeds.primary}</h3>
               <p>Color: {data.colors.primary || "Unknown"}</p>
               <p>Gender: {data.gender}</p>
+              <p>Coat: {data.coat}</p>
               <h3>Description</h3>
               <p>{data.description}</p>
             </div>
