@@ -7,14 +7,14 @@ const Search = ({ petTypes }) => {
   const {type} = useParams();
 
   const searchInputRef = useRef();
-  const searchOption = useRef();
+  const searchSelectType = useRef();
 
   const onSearchHandler = (e) => {
     e.preventDefault();
 
     const searchQuery = {
       name: searchInputRef.current.value,
-      type: searchOption.current.value || type || searchParams.get('type'),
+      type: searchSelectType.current.value || type || searchParams.get('type'),
     };
     const query = createSearchParams(searchQuery);
     navigate({
@@ -27,7 +27,7 @@ const Search = ({ petTypes }) => {
     <form onSubmit={onSearchHandler} className="search-form">
       <details className="filter">
         <summary>Filter</summary>
-        <select id="pet-select" ref={searchOption}>
+        <select id="pet-select" ref={searchSelectType}>
           <option value="">-- Choose a pet type --</option>
           {petTypes.map((type) => (
             <option key={type.name} value={type.name}>
