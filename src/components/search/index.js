@@ -42,7 +42,11 @@ const Search = ({ petTypes }) => {
           ))}
         </select>
         {petTypes.map((pet) => {
-          if (pet.name === searchSelectType) {
+          if (
+            pet.name === searchSelectType ||
+            pet.name === searchParams.get("type") ||
+            pet.name === type
+          ) {
             return (
               <>
                 <select id="pet-select" ref={searchSelectGender}>
