@@ -26,7 +26,7 @@ const Search = ({ petTypes }) => {
       pathname: "/search",
       search: `?${query}`,
     });
-    setSearchSelectType("");
+    setSearchSelectType(searchQuery.type);
   };
 
   return (
@@ -42,11 +42,7 @@ const Search = ({ petTypes }) => {
           ))}
         </select>
         {petTypes.map((pet) => {
-          if (
-            pet.name === searchSelectType ||
-            pet.name === searchParams.get("type") ||
-            pet.name === type
-          ) {
+          if (pet.name === searchSelectType) {
             return (
               <>
                 <select id="pet-select" ref={searchSelectGender}>
